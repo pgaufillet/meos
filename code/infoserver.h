@@ -169,9 +169,12 @@ class InfoBaseCompetitor : public InfoBase {
     int startTime;
     int runningTime;
     wstring bib;
+    wstring nationality;
+    int rogainingpoints;
+    int rogainingpointsgross;
     void serialize(xmlbuffer &xml, bool diffOnly, int course) const;
     bool synchronizeBase(oAbstractRunner &bc);
-  public:
+public:
     InfoBaseCompetitor(int id);
     virtual ~InfoBaseCompetitor() {}
 };
