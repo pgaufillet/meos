@@ -30,7 +30,7 @@
 //V35: abcdef
 //V36: abcdef
 int getMeosBuild() {
-  string revision("$Rev: 915 $");
+  string revision("$Rev: 935 $");
   return 174 + atoi(revision.substr(5, string::npos).c_str());
 }
 
@@ -47,7 +47,7 @@ wstring getMeosDate() {
 }
 
 wstring getBuildType() {
-  return L"Update 2"; // No parantheses (...)
+  return L"Update 3"; // No parantheses (...)
 }
 
 wstring getMajorVersion() {
@@ -135,6 +135,13 @@ void getSupporters(vector<wstring> &supp, vector<wstring> &developSupp)
   supp.emplace_back(L"JWOC 2019");
   developSupp.emplace_back(L"OK Nackhe");
   supp.emplace_back(L"OK Rodhen");
-
+  supp.emplace_back(L"HEYRIES");
+  developSupp.emplace_back(L"SongTao Wang / Henan Zhixing Exploration Sports Culture Co., Ltd.");
+  developSupp.emplace_back(L"Australian and Oceania Orienteering Championships 2019");
+  supp.emplace_back(L"Järfälla OK");
+  supp.emplace_back(L"TJ Slávia Farmaceut Bratislava");
+  supp.emplace_back(L"OK Tyr, Karlstad");
+  supp.emplace_back(L"Magnus Thornell, Surahammars SOK");
+  
   reverse(supp.begin(), supp.end());
 }
