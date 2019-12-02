@@ -465,6 +465,8 @@ void InfoBaseCompetitor::serialize(xmlbuffer &xml, bool diffOnly, int course) co
     prop.emplace_back("bib", bib);
   }
   prop.emplace_back("flag", nationality);
+  prop.emplace_back("pts", itow(rogainingpoints));
+  prop.emplace_back("ptsgr", itow(rogainingpointsgross));
 
   xml.write("base", prop, name);
 }
@@ -523,11 +525,23 @@ bool InfoBaseCompetitor::synchronizeBase(oAbstractRunner &bc) {
   oRunner *or = dynamic_cast<oRunner*>(&bc);
   if (or != NULL)
   {
-    wstring newNationality = or->getNationality();
+    wstring newNationality = or ->getNationality();
     if (nationality != newNationality) {
       nationality = newNationality;
       ch = true;
     }
+  }
+
+  int newrogainingpoints = bc.getRogainingPoints(false);
+  if (rogainingpoints != newrogainingpoints) {
+    rogainingpoints = newrogainingpoints;
+    ch = true;
+  }
+
+  int newrogainingpointsgross = bc.getRogainingPointsGross();
+  if (rogainingpointsgross != newrogainingpointsgross) {
+    rogainingpointsgross = newrogainingpointsgross;
+    ch = true;
   }
 
   return ch;
